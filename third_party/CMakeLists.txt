@@ -3,6 +3,11 @@
 project(third_party LANGUAGES C CXX)
 
 # spdlog
-add_subdirectory(spdlog)
-set_property(TARGET spdlog PROPERTY FOLDER "ThirdParty")
-set(YUAN_INCLUDES ${YUAN_INCLUDES} "${CMAKE_CURRENT_SOURCE_DIR}/spdlog/include" PARENT_SCOPE)
+find_package(spdlog CONFIG REQUIRED)
+add_library(spdlog INTERFACE)
+target_link_libraries(spdlog INTERFACE spdlog::spdlog_header_only)
+
+# glfw
+find_package(glfw3 CONFIG REQUIRED)
+add_library(glfw_lib INTERFACE)
+target_link_libraries(glfw_lib INTERFACE glfw)

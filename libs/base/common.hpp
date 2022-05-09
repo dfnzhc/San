@@ -29,7 +29,6 @@ public:
     template<typename... Args>
     explicit YuanException(std::string_view fmt_str, const Args& ... args)
         : std::runtime_error(fmt::format(fmt_str, args...)) {}
-        
 };
 
 } // namespace Yuan

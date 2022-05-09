@@ -1,0 +1,15 @@
+﻿file(GLOB SOURCE_FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.h"
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.cpp"
+        "${CMAKE_CURRENT_SOURCE_DIR}/*.hpp"
+        )
+
+add_lib(
+        NAME platform
+        FILES ${SOURCE_FILES}
+        LIBS base glfw_lib
+        DEFINITIONS ${YUAN_DEFINITIONS}
+        INCLUDEDIRS ${YUAN_INCLUDES}
+)
+
+set_property(TARGET platform PROPERTY FOLDER "Libs")

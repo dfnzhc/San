@@ -1,5 +1,5 @@
 ﻿cmake_minimum_required(VERSION 3.21)
-project(CGT_Test LANGUAGES CXX CUDA)
+project(CGT_Test LANGUAGES CXX)
 
 find_package(Catch2 CONFIG REQUIRED)
 
@@ -21,7 +21,7 @@ set(ALL_EXAMPLE_TARGETS
         )
 
 foreach (name ${ALL_EXAMPLE_TARGETS})
-    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
-    target_link_libraries(${name} PRIVATE Catch2::Catch2 THE_LIB_NAME)
+    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${YUAN_INCLUDES})
+    target_link_libraries(${name} PRIVATE Catch2::Catch2 base platform)
     set_property(TARGET ${name} PROPERTY CXX_STANDARD 23)
 endforeach ()
