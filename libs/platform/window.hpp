@@ -47,7 +47,7 @@ public:
 
     struct Properties
     {
-        std::string title = "";
+        std::string title = "Yuan Window";
         Mode mode = Mode::Default;
         bool resizable = true;
         Vsync vsync = Vsync::Default;

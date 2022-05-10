@@ -5,13 +5,16 @@
 #pragma once
 
 #include "window.hpp"
+#include "platform.hpp"
+
+struct GLFWwindow;
 
 namespace Yuan {
 
 class GLFW_Window : public Window
 {
 public:
-//    GLFW_Window(Platform *platform, const Window::Properties &properties);
+    GLFW_Window(Platform *platform, const Window::Properties &properties);
 
 	virtual ~GLFW_Window();
 
@@ -26,7 +29,10 @@ public:
 	float getContentScaleFactor() const override;
     
 private:
-    struct GLFWwindow* handle_ = nullptr;
+    void setGLFWCallback();
+    
+    
+    GLFWwindow* handle_ = nullptr;
 };
 
 } // namespace Yuan

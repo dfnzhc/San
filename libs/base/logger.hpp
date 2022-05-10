@@ -11,7 +11,7 @@
 
 namespace Yuan {
 
-const char* LOGGER_NAME = "YUAN";
+static const char* LOGGER_NAME = "YUAN";
 
 class Log final
 {

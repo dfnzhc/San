@@ -6,17 +6,20 @@
 
 #include <catch2/catch.hpp>
 #include <filesystem>
-#include "base/logger.hpp"
+#include "win_platform.hpp"
 
 namespace fs = std::filesystem;
 
-TEST_CASE("test", "[TestLog]")
+TEST_CASE("TestPlatform", "[TestLog]")
 {
-    Yuan::Log log;
-
-    LOG_TRACE("123");
-    LOG_DEBUG("123");
-    LOG_INFO("123");
-    LOG_WARN("123");
-    LOG_ERROR("123");
+    Yuan::WinPlatform platform;
+    
+    auto code = platform.initialize();
+    
+    if (code == Yuan::ExitCode::Success)
+	{
+		code = platform.mainLoop();
+	}
+    
+    platform.terminate(code);
 }
