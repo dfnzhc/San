@@ -84,7 +84,7 @@ public:
 
 protected:
     std::unique_ptr<Window> window_ = nullptr;
-    std::shared_ptr<Application> application_ = nullptr;
+    std::unique_ptr<Application> application_ = nullptr;
 
     virtual void createWindow(const Window::Properties& properties) = 0;
 
