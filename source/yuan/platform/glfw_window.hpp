@@ -28,9 +28,10 @@ public:
 
 	float getContentScaleFactor() const override;
     
+    GLFWwindow* getGlfwWindowHandle() const { return handle_; }
+    
 private:
     void setGLFWCallback();
-    
     
     GLFWwindow* handle_ = nullptr;
 };

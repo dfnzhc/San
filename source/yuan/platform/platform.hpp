@@ -81,6 +81,8 @@ public:
 
     static const uint32_t MIN_WINDOW_WIDTH;
     static const uint32_t MIN_WINDOW_HEIGHT;
+    
+    virtual void setApplication(Application&& app) = 0;
 
 protected:
     std::unique_ptr<Window> window_ = nullptr;

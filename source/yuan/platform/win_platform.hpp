@@ -15,6 +15,7 @@ public:
     
     virtual ~WinPlatform() = default;
     
+    virtual void setApplication(Application&& app) override;
 protected:
 	virtual void createWindow(const Window::Properties &properties) override;
 };
