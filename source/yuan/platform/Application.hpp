@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "platform/input_events.hpp"
+#include "yuan/platform/input_events.hpp"
 
 namespace Yuan {
 

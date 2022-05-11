@@ -4,7 +4,8 @@
 
 #pragma once
 
-#include "platform/keycode.hpp"
+#include "yuan/platform/keycode.hpp"
+
 namespace Yuan {
 
 enum class EventType

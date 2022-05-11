@@ -13,13 +13,13 @@ include(utils)
 
 list(APPEND YUAN_DEFINITIONS)
 
-set(YUAN_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/libs/")
+set(YUAN_INCLUDES "${CMAKE_CURRENT_SOURCE_DIR}/source/")
 
 # add third party libraries
 add_subdirectory(third_party)
 
 # add the library
-add_subdirectory(libs)
+add_subdirectory(source)
 
 if(YUAN_BUILD_TESTS)
     # add tests

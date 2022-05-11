@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "platform/platform.hpp"
+#include "yuan/platform/platform.hpp"
 
 namespace Yuan {
 

@@ -4,8 +4,8 @@
 
 #include "platform.hpp"
 
-#include "base/common.hpp"
-#include "base/logger.hpp"
+#include "yuan/base/common.hpp"
+#include "yuan/base/logger.hpp"
 
 namespace Yuan {
 

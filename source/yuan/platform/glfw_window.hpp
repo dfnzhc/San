@@ -4,8 +4,8 @@
 
 #pragma once
 
-#include "window.hpp"
-#include "platform.hpp"
+#include "yuan/platform/window.hpp"
+#include "yuan/platform/platform.hpp"
 
 struct GLFWwindow;
 

@@ -4,10 +4,11 @@
 
 #pragma once
 
-#include <base/timer.hpp>
-#include "platform/window.hpp"
-#include "platform/input_events.hpp"
-#include "platform/Application.hpp"
+#include <yuan/base/timer.hpp>
+#include "yuan/platform/window.hpp"
+#include "yuan/platform/input_events.hpp"
+#include "yuan/platform/Application.hpp"
+
 namespace Yuan {
 
 enum class ExitCode

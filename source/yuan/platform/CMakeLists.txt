@@ -13,4 +13,4 @@ add_lib(
         INCLUDEDIRS ${YUAN_INCLUDES}
 )
 
-set_property(TARGET platform PROPERTY FOLDER "Libs")
+set_property(TARGET platform PROPERTY FOLDER "yuan")

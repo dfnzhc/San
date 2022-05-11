@@ -8,8 +8,9 @@
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
 
-#include "base/common.hpp"
-#include "base/logger.hpp"
+#include "yuan/base/common.hpp"
+#include "yuan/base/logger.hpp"
+#include "input_events.hpp"
 
 namespace Yuan {
 
