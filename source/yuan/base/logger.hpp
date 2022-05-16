@@ -30,10 +30,8 @@ public:
     {
         auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
         console_sink->set_pattern("%^[%T]: %v%$");
-        auto file_sink = std::make_shared<spdlog::sinks::basic_file_sink_mt>("logs.txt", true);
-        file_sink->set_pattern("[%T] [%l]: %v");
 
-        std::vector<spdlog::sink_ptr> sinks{console_sink, file_sink};
+        std::vector<spdlog::sink_ptr> sinks{console_sink};
         auto logger = std::make_shared<spdlog::logger>(Yuan::LOGGER_NAME, sinks.begin(), sinks.end());
         logger->set_level(spdlog::level::trace);
         logger->flush_on(spdlog::level::trace);
