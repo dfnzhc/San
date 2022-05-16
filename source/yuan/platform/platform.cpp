@@ -17,10 +17,6 @@ std::string Platform::temp_directory_ = "";
 
 ExitCode Platform::initialize()
 {
-    /// init the logger
-    Log::Init();
-    LOG_INFO("Logger initialized.");
-    
     if (application_) {
         window_properties_.title = application_->get_name();
     }
