@@ -168,7 +168,7 @@ GLFW_Window::GLFW_Window(Platform* platform, const Window::Properties& propertie
     : Window(properties)
 {
     if (!glfwInit()) {
-        throw YuanException("GLFW couldn't be initialized.");
+        throw std::runtime_error("GLFW couldn't be initialized.");
     }
 
     glfwSetErrorCallback([](int error, const char* description)
@@ -209,7 +209,7 @@ GLFW_Window::GLFW_Window(Platform* platform, const Window::Properties& propertie
     resize(Extent{properties.extent.width, properties.extent.height});
 
     if (!handle_) {
-        throw YuanException("Couldn't create glfw window.");
+        throw std::runtime_error("Couldn't create glfw window.");
     }
 
     glfwSetWindowUserPointer(handle_, platform);

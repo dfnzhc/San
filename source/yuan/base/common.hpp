@@ -22,13 +22,4 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
-/// Simple exception class
-class YuanException : public std::runtime_error
-{
-public:
-    template<typename... Args>
-    explicit YuanException(std::string_view fmt_str, const Args& ... args)
-        : std::runtime_error(fmt::vformat(fmt_str, fmt::make_format_args(std::forward<Args>(args)...))) {}
-};
-
 } // namespace Yuan

@@ -63,7 +63,6 @@ protected:
 
     Platform* platform_ = nullptr;
 
-private:
     std::string name_{"Sample Application"};
 };
 

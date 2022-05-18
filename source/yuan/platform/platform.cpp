@@ -65,7 +65,6 @@ void Platform::terminate(ExitCode code)
         application_->finish();
     }
 
-    application_.reset();
     window_.reset();
 }
 
