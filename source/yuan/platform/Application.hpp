@@ -23,7 +23,11 @@ public:
      * @param platform The platform the application is being run on
      */
     virtual bool prepare(Platform& platform) { platform_ = &platform; return true; }
-
+    
+    /**
+     * @brief setup application properties
+     */
+    virtual void setup() {}
     /**
      * @brief Updates the application
      * @param delta_time The time since the last update

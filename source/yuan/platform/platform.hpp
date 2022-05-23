@@ -69,7 +69,7 @@ public:
 
     virtual void inputEvent(const InputEvent& input_event);
 
-    Window& getWindow() { return *window_; }
+    Window* getWindow() { return window_.get(); }
 
     static void setWorkDirectory(const std::string& dir) { work_directory_ = dir; }
 

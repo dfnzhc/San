@@ -28,6 +28,8 @@ ExitCode Platform::initialize()
 
         return ExitCode::FatalError;
     }
+    
+    application_->setup();
 
     return ExitCode::Success;
 }
