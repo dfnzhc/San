@@ -296,9 +296,17 @@ void GLFW_Window::setGLFWCallback()
     glfwSetCursorPosCallback(handle_, [](GLFWwindow* window, double xpos, double ypos)
     {
         if (auto* platform = reinterpret_cast<Platform*>(glfwGetWindowUserPointer(window))) {
+            auto* glfwWindow = reinterpret_cast<GLFW_Window*>(platform->getWindow());
+
+            MouseButton button = glfwWindow->getMouseButton();
+            MouseAction action = MouseAction::Move;
+            if (button != MouseButton::Unknown) {
+                action = MouseAction::PressedMove;
+            }
+            
             platform->inputEvent(MouseInputEvent{
-                MouseButton::Unknown,
-                MouseAction::Move,
+                button,
+                action,
                 static_cast<float>(xpos),
                 static_cast<float>(ypos)});
         }
@@ -306,14 +314,23 @@ void GLFW_Window::setGLFWCallback()
 
     glfwSetMouseButtonCallback(handle_, [](GLFWwindow* window, int button, int action, int /*mods*/)
     {
-        MouseAction mouse_action = TranslateMouseAction(action);
+        auto mouse_action = TranslateMouseAction(action);
+        auto mouse_button = TranslateMouseButton(button);
 
         if (auto* platform = reinterpret_cast<Platform*>(glfwGetWindowUserPointer(window))) {
+            auto* glfwWindow = reinterpret_cast<GLFW_Window*>(platform->getWindow());
+
+            if (mouse_action == MouseAction::Press) {
+                glfwWindow->setMouseButton(mouse_button);
+            } else {
+                glfwWindow->setMouseButton(MouseButton::Unknown);
+            }
+
             double xpos, ypos;
             glfwGetCursorPos(window, &xpos, &ypos);
 
             platform->inputEvent(MouseInputEvent{
-                TranslateMouseButton(button),
+                mouse_button,
                 mouse_action,
                 static_cast<float>(xpos),
                 static_cast<float>(ypos)});

@@ -14,26 +14,29 @@ namespace Yuan {
 class GLFW_Window : public Window
 {
 public:
-    GLFW_Window(Platform *platform, const Window::Properties &properties);
+    GLFW_Window(Platform* platform, const Window::Properties& properties);
 
-	virtual ~GLFW_Window();
+    virtual ~GLFW_Window();
 
-	bool shouldClose() override;
+    bool shouldClose() override;
 
-	void processEvents() override;
+    void processEvents() override;
 
-	void close() override;
+    void close() override;
 
-	float getDpiFactor() const override;
+    float getDpiFactor() const override;
 
-	float getContentScaleFactor() const override;
-    
+    float getContentScaleFactor() const override;
+
     GLFWwindow* getGlfwWindowHandle() const { return handle_; }
-    
+    void setMouseButton(MouseButton button) { pressedMouseButton = button; }
+    MouseButton getMouseButton() const { return pressedMouseButton; }
+
 private:
     void setGLFWCallback();
-    
+
     GLFWwindow* handle_ = nullptr;
+    MouseButton pressedMouseButton = MouseButton::Unknown;
 };
 
 } // namespace Yuan

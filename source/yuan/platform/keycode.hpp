@@ -188,6 +188,7 @@ enum class MouseAction
     Release,
     Move,
     Scroll,
+    PressedMove,
     Unknown
 };
 
@@ -207,6 +208,10 @@ inline std::string GetActionString(MouseAction action)
 
     if (action == MouseAction::Scroll) {
         return "Scroll";
+    }
+
+    if (action == MouseAction::PressedMove) {
+        return "PressedMove";
     }
 
     return "Unknown";

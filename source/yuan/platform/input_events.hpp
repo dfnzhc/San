@@ -40,6 +40,11 @@ struct MouseInputEvent : public InputEvent
     float pos_x = 0.0f;
     float pos_y = 0.0f;
     float scroll_dir = 0;
+
+    inline bool isEvent(MouseButton b, MouseAction a) const
+    {
+        return button == b && action == a;
+    }
 };
 
 } // namespace Yuan
