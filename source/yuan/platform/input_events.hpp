@@ -27,6 +27,11 @@ struct KeyInputEvent : public InputEvent
 
     KeyCode code;
     KeyAction action;
+
+    inline bool isEvent(KeyCode c, KeyAction a) const
+    {
+        return code == c && action == a;
+    }
 };
 
 struct MouseInputEvent : public InputEvent
