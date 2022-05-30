@@ -10,7 +10,6 @@
 #include <spdlog/sinks/basic_file_sink.h>
 
 namespace San {
-
 static const char* LOGGER_NAME = "San";
 
 class Log final
