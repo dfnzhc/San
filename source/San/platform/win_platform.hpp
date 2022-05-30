@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "yuan/platform/platform.hpp"
+#include "San/platform/platform.hpp"
 
-namespace Yuan {
+namespace San {
 
 class WinPlatform : public Platform
 {
@@ -20,4 +20,4 @@ protected:
 	virtual void createWindow(const Window::Properties &properties) override;
 };
 
-} // namespace Yuan
+} // namespace San

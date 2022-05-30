@@ -1,2 +1,2 @@
 ﻿
-add_subdirectory(yuan)
+add_subdirectory(San)

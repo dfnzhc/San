@@ -6,7 +6,7 @@
 
 #include <utility>
 
-namespace Yuan {
+namespace San {
 
 Window::Window(Window::Properties properties)
     : properties_{std::move(properties)}
@@ -25,4 +25,4 @@ Window::Extent Window::resize(const Window::Extent& extent)
 	return properties_.extent;
 }
 
-} // namespace Yuan
+} // namespace San

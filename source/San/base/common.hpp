@@ -10,7 +10,7 @@ class resolver;
 }
 
 #include <spdlog/fmt/fmt.h>
-namespace Yuan {
+namespace San {
 
 #define EPS_F = 1e-5;
 #define INF_F = std::numeric_limits<float>::infinity();
@@ -22,4 +22,4 @@ using std::cout;
 using std::cerr;
 using std::endl;
 
-} // namespace Yuan
+} // namespace San

@@ -4,12 +4,12 @@
 
 #pragma once
 
-#include <yuan/base/timer.hpp>
-#include "yuan/platform/window.hpp"
-#include "yuan/platform/input_events.hpp"
-#include "yuan/platform/Application.hpp"
+#include <San/base/timer.hpp>
+#include "San/platform/window.hpp"
+#include "San/platform/input_events.hpp"
+#include "San/platform/Application.hpp"
 
-namespace Yuan {
+namespace San {
 
 enum class ExitCode
 {
@@ -101,4 +101,4 @@ private:
     static std::string work_directory_;
 };
 
-} // namespace Yuan
+} // namespace San

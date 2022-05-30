@@ -8,11 +8,11 @@
 #include <GLFW/glfw3.h>
 #include <GLFW/glfw3native.h>
 
-#include "yuan/base/common.hpp"
-#include "yuan/base/logger.hpp"
+#include "San/base/common.hpp"
+#include "San/base/logger.hpp"
 #include "input_events.hpp"
 
-namespace Yuan {
+namespace San {
 
 inline KeyCode TranslateKeyCode(int key)
 {
@@ -353,4 +353,4 @@ void GLFW_Window::setGLFWCallback()
     });
 }
 
-} // namespace Yuan
+} // namespace San

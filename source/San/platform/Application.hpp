@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "yuan/platform/input_events.hpp"
+#include "San/platform/input_events.hpp"
 
-namespace Yuan {
+namespace San {
 
 class Window;
 class Platform;
@@ -70,5 +70,5 @@ protected:
     std::string name_{"Sample Application"};
 };
 
-} // namespace Yuan
+} // namespace San
 

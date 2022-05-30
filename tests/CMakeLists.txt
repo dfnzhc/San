@@ -21,7 +21,7 @@ set(ALL_EXAMPLE_TARGETS
         )
 
 foreach (name ${ALL_EXAMPLE_TARGETS})
-    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${YUAN_INCLUDES})
-    target_link_libraries(${name} PRIVATE Catch2::Catch2 Yuan)
+    target_include_directories(${name} PRIVATE ${CMAKE_CURRENT_SOURCE_DIR} ${SAN_INCLUDES})
+    target_link_libraries(${name} PRIVATE Catch2::Catch2 San)
     set_property(TARGET ${name} PROPERTY CXX_STANDARD 23)
 endforeach ()

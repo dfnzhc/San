@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace Yuan {
+namespace San {
 
 class Window
 {
@@ -47,7 +47,7 @@ public:
 
     struct Properties
     {
-        std::string title = "Yuan Window";
+        std::string title = "San Window";
         Mode mode = Mode::Default;
         bool resizable = true;
         Vsync vsync = Vsync::Default;
@@ -99,4 +99,4 @@ protected:
     Properties properties_;
 };
 
-} // namespace Yuan
+} // namespace San

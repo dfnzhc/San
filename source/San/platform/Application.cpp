@@ -5,7 +5,7 @@
 #include <logger.hpp>
 #include "Application.hpp"
 
-namespace Yuan {
+namespace San {
 
 void Application::update(float delta_time)
 {
@@ -15,4 +15,4 @@ void Application::update(float delta_time)
 //    LOG_INFO("[APP] update fps: {}", fps_);
 }
 
-} // namespace Yuan
+} // namespace San

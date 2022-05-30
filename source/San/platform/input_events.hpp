@@ -4,9 +4,9 @@
 
 #pragma once
 
-#include "yuan/platform/keycode.hpp"
+#include "San/platform/keycode.hpp"
 
-namespace Yuan {
+namespace San {
 
 enum class EventType
 {
@@ -52,4 +52,4 @@ struct MouseInputEvent : public InputEvent
     }
 };
 
-} // namespace Yuan
+} // namespace San

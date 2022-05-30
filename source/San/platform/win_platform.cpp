@@ -5,7 +5,7 @@
 #include "win_platform.hpp"
 #include "glfw_window.hpp"
 
-namespace Yuan {
+namespace San {
 
 void WinPlatform::createWindow(const Window::Properties& properties)
 {
@@ -18,4 +18,4 @@ void WinPlatform::setApplication(Application* app)
     application_->prepare(*this);
 }
 
-} // namespace Yuan
+} // namespace San

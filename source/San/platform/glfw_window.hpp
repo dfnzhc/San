@@ -4,12 +4,12 @@
 
 #pragma once
 
-#include "yuan/platform/window.hpp"
-#include "yuan/platform/platform.hpp"
+#include "San/platform/window.hpp"
+#include "San/platform/platform.hpp"
 
 struct GLFWwindow;
 
-namespace Yuan {
+namespace San {
 
 class GLFW_Window : public Window
 {
@@ -39,4 +39,4 @@ private:
     MouseButton pressedMouseButton = MouseButton::Unknown;
 };
 
-} // namespace Yuan
+} // namespace San

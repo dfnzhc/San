@@ -26,7 +26,7 @@
 #include <limits>
 #include <set>
 
-#ifdef YUAN_IN_WINDOWS
+#ifdef SAN_IN_WINDOWS
 #include <Windows.h>
 #include <winnt.h>
 #include <windowsx.h>

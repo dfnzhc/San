@@ -9,8 +9,8 @@ add_lib(
         NAME platform
         FILES ${SOURCE_FILES}
         LIBS base glfw_lib
-        DEFINITIONS ${YUAN_DEFINITIONS}
-        INCLUDEDIRS ${YUAN_INCLUDES}
+        DEFINITIONS ${SAN_DEFINITIONS}
+        INCLUDEDIRS ${SAN_INCLUDES}
 )
 
-set_property(TARGET platform PROPERTY FOLDER "yuan")
+set_property(TARGET platform PROPERTY FOLDER "San")

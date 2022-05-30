@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace Yuan {
+namespace San {
 
 enum class KeyAction
 {
@@ -217,4 +217,4 @@ inline std::string GetActionString(MouseAction action)
     return "Unknown";
 }
 
-} // namespace Yuan
+} // namespace San

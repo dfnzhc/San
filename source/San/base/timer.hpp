@@ -4,7 +4,7 @@
 
 #pragma once
 
-namespace Yuan {
+namespace San {
 
 class Timer
 {
@@ -113,4 +113,4 @@ private:
     Clock::time_point previous_tick_;
 };
 
-} // namespace Yuan
+} // namespace San

@@ -4,10 +4,10 @@
 
 #include "platform.hpp"
 
-#include "yuan/base/common.hpp"
-#include "yuan/base/logger.hpp"
+#include "San/base/common.hpp"
+#include "San/base/logger.hpp"
 
-namespace Yuan {
+namespace San {
 
 const uint32_t Platform::MIN_WINDOW_WIDTH = 420;
 const uint32_t Platform::MIN_WINDOW_HEIGHT = 320;
@@ -132,4 +132,4 @@ void Platform::setWindowProperties(const Window::OptionalProperties& properties)
 #undef SetProperty
 }
 
-} // namespace Yuan
+} // namespace San
