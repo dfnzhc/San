@@ -209,11 +209,10 @@ GLFW_Window::GLFW_Window(Platform* platform, const Window::Properties& propertie
     resize(Extent{properties.extent.width, properties.extent.height});
 
     if (!handle_) {
-        throw std::runtime_error("Couldn't create glfw window.");
+        LOG_FATAL("Couldn't create glfw window.");
     }
 
     glfwSetWindowUserPointer(handle_, platform);
-
     setGLFWCallback();
 
     LOG_INFO("Create GLFW window successfully.");

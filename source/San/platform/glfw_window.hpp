@@ -16,7 +16,7 @@ class GLFW_Window : public Window
 public:
     GLFW_Window(Platform* platform, const Window::Properties& properties);
 
-    virtual ~GLFW_Window();
+    ~GLFW_Window() override;
 
     bool shouldClose() override;
 
@@ -29,11 +29,10 @@ public:
     float getContentScaleFactor() const override;
 
     GLFWwindow* getGlfwWindowHandle() const { return handle_; }
-    void setMouseButton(MouseButton button) { pressedMouseButton = button; }
-    MouseButton getMouseButton() const { return pressedMouseButton; }
-
 private:
     void setGLFWCallback();
+    MouseButton getMouseButton() const { return pressedMouseButton; }
+    void setMouseButton(MouseButton button) { pressedMouseButton = button; }
 
     GLFWwindow* handle_ = nullptr;
     MouseButton pressedMouseButton = MouseButton::Unknown;

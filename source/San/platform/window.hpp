@@ -59,40 +59,39 @@ public:
     virtual ~Window() = default;
 
     /**
-     * @brief Checks if the window should be closed
+     * @brief 检查窗口是否应该关闭
      */
     virtual bool shouldClose() = 0;
 
     /**
-     * @brief Handles the processing of all underlying window events
+     * @brief 处理所有窗口事件
      */
     virtual void processEvents() {}
 
     /**
-     * @brief Requests to close the window
+     * @brief 请求关闭窗口
      */
     virtual void close() = 0;
 
     /**
-     * @return The dot-per-inch scale factor
+     * @return 窗口的 dpi(dot-per-inch) 属性
      */
     virtual float getDpiFactor() const = 0;
 
     /**
-     * @return The scale factor for systems with heterogeneous window and pixel coordinates
+     * @return 窗口像素的缩放因子，默认是 1
      */
     virtual float getContentScaleFactor() const { return 1.0f; }
 
     /**
-     * @brief Attempt to resize the window - not gauranteed to change
+     * @brief 尝试更改窗口大小，可能不会发生
      * 
-     * @param extent The preferred window extent
-     * @return Extent The new window extent
+     * @param extent 要更新的窗口大小
+     * @return Extent 更新后的窗口大小
      */
     Extent resize(const Extent& extent);
 
     const Extent& getExtent() const { return properties_.extent; }
-
     Mode getWindowMode() const { return properties_.mode; }
 
 protected:
