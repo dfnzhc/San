@@ -19,42 +19,40 @@ public:
     virtual ~Application() = default;
 
     /**
-     * @brief Prepares the application for execution
-     * @param platform The platform the application is being run on
+     * @brief 准备 app 运行所必要的部件
+     * @param platform app 所运行的系统
      */
     virtual bool prepare(Platform& platform) { platform_ = &platform; return true; }
     
     /**
-     * @brief setup application properties
+     * @brief 设置 app 属性
      */
     virtual void setup() {}
     /**
-     * @brief Updates the application
-     * @param delta_time The time since the last update
+     * @brief 更新 app
+     * @param delta_time 与上次更新间的间隔
      */
     virtual void update(float delta_time);
 
     /**
-     * @brief Handles cleaning up the application
+     * @brief app 运行，执行清除操作
      */
     virtual void finish() {}
 
     /**
-     * @brief Handles resizing of the window
-     * @param width New width of the window
-     * @param height New height of the window
+     * @brief 处理窗口大小改变的事件
+     * @param width 新窗口的宽
+     * @param height 新窗口的高
      */
     virtual bool resize(const uint32_t width, const uint32_t height) { return true; }
 
     /**
-     * @brief Handles input events of the window
-     * @param input_event The input event object
+     * @brief 处理输入事件
+     * @param input_event 输入事件对象
      */
     virtual void input_event(const InputEvent& input_event) {}
 
-    const std::string& get_name() const { return name_; }
-
-    void set_name(const std::string& name) { name_ = name;}
+    std::string_view get_name() const { return name_; }
 
 protected:
     float fps_{0.0f};

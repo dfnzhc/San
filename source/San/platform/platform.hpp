@@ -13,8 +13,8 @@ namespace San {
 
 enum class ExitCode
 {
-    Success = 0, /* App executed as expected */
-    FatalError   /* App encountered an unexpected error */
+    Success = 0, /* 程序按预期退出 */
+    FatalError   /* 程序发生了错误、异常 */
 };
 
 class Platform
@@ -25,45 +25,37 @@ public:
     virtual ~Platform() = default;
 
     /**
-     * @brief Initialize the platform
-     * @return An exit code representing the outcome of initialization
+     * @brief 初始化 platform
+     * @return 
      */
     virtual ExitCode initialize();
 
     /**
-     * @brief Handles the main loop of the platform
-     * This should be overriden if a platform requires a specific main loop setup.
-     * @return An exit code representing the outcome of the loop
+     * @brief 程序的主循环，如果有必要应该直接在子类进行重写覆盖
+     * @return 程序的推出代码
      */
     ExitCode mainLoop();
 
     /**
-     * @brief Runs the application for one frame
+     * @brief 更新所有部件
      */
     void update();
 
     /**
-     * @brief Terminates the platform and the application
-     * @param code Determines how the platform should exit
+     * @brief 终止程序
+     * @param code 用来决定程序应该怎么样终止
      */
     virtual void terminate(ExitCode code);
 
     /**
-     * @brief Requests to close the platform at the next available point
+     * @brief 请求关闭程序
      */
     virtual void close();
 
     /**
-     * @brief Returns the working directory of the application set by the platform
-     * @returns The path to the working directory
+     * @brief 返回程序的工作目录
      */
     static const std::string& getWorkDirectory() { return work_directory_; }
-
-    /**
-     * @brief Returns the suitable directory for temporary files from the environment variables set in the system
-     * @returns The path to the temp folder on the system
-     */
-    static const std::string& getTempDirectory() { return temp_directory_; }
 
     virtual void resize(uint32_t width, uint32_t height);
 
@@ -73,15 +65,11 @@ public:
 
     static void setWorkDirectory(const std::string& dir) { work_directory_ = dir; }
 
-    static void setTempDirectory(const std::string& dir) { temp_directory_ = dir; }
-
-    void disableInputProcessing() { process_input_events_ = false; }
-
     void setWindowProperties(const Window::OptionalProperties& properties);
 
     static const uint32_t MIN_WINDOW_WIDTH;
     static const uint32_t MIN_WINDOW_HEIGHT;
-    
+
     virtual void setApplication(Application* app) = 0;
 
 protected:
@@ -90,14 +78,12 @@ protected:
 
     virtual void createWindow(const Window::Properties& properties) = 0;
 
-    Window::Properties window_properties_;           /* Source of truth for window state */
-    bool process_input_events_ = true;               /* App should continue processing input events */
-    bool close_requested_ = false;                   /* Close requested */
-    
-private:
-    Timer timer_;
+    Window::Properties window_properties_;
+    bool close_requested_ = false;
 
-    static std::string temp_directory_;
+private:
+    Timer timer_{};
+
     static std::string work_directory_;
 };
 

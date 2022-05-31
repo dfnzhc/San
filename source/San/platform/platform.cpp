@@ -13,7 +13,6 @@ const uint32_t Platform::MIN_WINDOW_WIDTH = 420;
 const uint32_t Platform::MIN_WINDOW_HEIGHT = 320;
 
 std::string Platform::work_directory_ = "";
-std::string Platform::temp_directory_ = "";
 
 ExitCode Platform::initialize()
 {
@@ -30,7 +29,7 @@ ExitCode Platform::initialize()
     }
     
     application_->setup();
-
+    
     return ExitCode::Success;
 }
 
@@ -94,33 +93,27 @@ void Platform::resize(uint32_t width, uint32_t height)
 
 void Platform::inputEvent(const InputEvent& input_event)
 {
-    if (process_input_events_ && application_) {
+    if (application_) {
         application_->input_event(input_event);
     }
 
     if (input_event.type == EventType::Keyboard) {
         const auto& key_event = static_cast<const KeyInputEvent&>(input_event);
-
         if (key_event.code == KeyCode::Back ||
             key_event.code == KeyCode::Escape) {
             close();
         }
 
-//        LOG_INFO("[Keyboard] key: {}, action: {}", static_cast<int>(key_event.code), GetActionString(key_event.action));
     } else if (input_event.type == EventType::Mouse) {
         [[maybe_unused]] 
         const auto& mouse_event = static_cast<const MouseInputEvent&>(input_event);
-
-//        LOG_INFO("[Mouse] key: {}, action: {} ({}.{} {})",
-//                 GetButtonString(mouse_event.button),
-//                 GetActionString(mouse_event.action), mouse_event.pos_x, mouse_event.pos_y, mouse_event.scroll_dir);
     }
 }
 
 void Platform::setWindowProperties(const Window::OptionalProperties& properties)
 {
 #define SetProperty(src, dst)                   \
-    dst = src.has_value() ? src.value() : dst
+    dst = src.value_or(dst);
 
     SetProperty(properties.title, window_properties_.title);
     SetProperty(properties.mode, window_properties_.mode);
