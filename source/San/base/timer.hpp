@@ -35,7 +35,7 @@ public:
     }
 
     /**
-	 * @brief Laps the timer, elapsed() now returns the duration since the last lap()
+	 * @brief 开始计时, elapsed() 返回现在到上一次 lap() 的时间间隔
 	 */
     void lap()
     {
@@ -44,8 +44,8 @@ public:
     }
 
     /**
-	 * @brief Stops the timer, elapsed() now returns 0
-	 * @return The total execution time between `start()` and `stop()`
+	 * @brief 停止计时
+	 * @return 返回时钟从 `start()` 到 `stop()` 的时间间隔
 	 */    
     template<typename T = DefaultResolution>
     double stop()
@@ -64,9 +64,8 @@ public:
     }
 
     /**
-	 * @brief Calculates the time difference between now and when the timer was started
-	 *        if lap() was called, then between now and when the timer was last lapped
-	 * @return The duration between the two time points (default in seconds)
+	 * @brief 如果开始计时，即调用 'lap()' ，那么返回 ‘now()’ 到上一次 'lap()' 的时间间隔；否则返回 ‘now()’ 到 'start()'
+	 * @return 两个时间点的间隔 (默认单位：秒)
 	 */
     template<typename T = DefaultResolution>
     double elapsed()
@@ -85,8 +84,8 @@ public:
     }
 
     /**
-	 * @brief Calculates the time difference between now and the last time this function was called
-	 * @return The duration between the two time points (default in seconds)
+	 * @brief 返回 ‘now()' 与上一次调用 tick() 的时间间隔
+	 * @return 两个时间点的间隔 (默认单位：秒)
 	 */
     template<typename T = DefaultResolution>
     double tick()
@@ -96,8 +95,6 @@ public:
         previous_tick_ = now;
         return duration.count();
     }
-    
-    
 
     bool isRunning() const
     {
