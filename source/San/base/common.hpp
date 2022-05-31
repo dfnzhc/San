@@ -9,17 +9,15 @@ class path;
 class resolver;
 }
 
-#include <spdlog/fmt/fmt.h>
+#ifndef DEL_COPY_IN_CLASS
+#define DEL_COPY_IN_CLASS(CLASS_NAME)                         \
+        CLASS_NAME(const CLASS_NAME&) = delete;               \
+        CLASS_NAME(CLASS_NAME&&) = delete;                    \
+        CLASS_NAME& operator=(const CLASS_NAME&) = delete;    \
+        CLASS_NAME& operator=(CLASS_NAME && )= delete;
+#endif
+
 namespace San {
 
-#define EPS_F = 1e-5;
-#define INF_F = std::numeric_limits<float>::infinity();
-#define EPS_D = 1e-16;
-#define INF_D = std::numeric_limits<double>::infinity();
-
-/// for debugging purposes
-using std::cout;
-using std::cerr;
-using std::endl;
 
 } // namespace San
