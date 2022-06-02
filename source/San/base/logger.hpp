@@ -18,43 +18,38 @@ static const char* LOGGER_NAME = "San_Logger";
 class LogSystem final
 {
 public:
+
     LogSystem()
     {
-        auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
-        console_sink->set_level(spdlog::level::debug);
-        console_sink->set_pattern("[%^%=9l%$] %v");
-
-        std::vector<spdlog::sink_ptr> sinks{console_sink};
-        logger_ = std::make_shared<spdlog::logger>(San::LOGGER_NAME,
-                                                   sinks.begin(),
-                                                   sinks.end());
-
-        logger_->set_level(spdlog::level::trace);
-        spdlog::register_logger(logger_);
+        Init();
     }
 
     ~LogSystem()
     {
-        logger_->flush_on(spdlog::level::trace);
-        spdlog::drop_all();
+        Shutdown();
     }
     
     DEL_COPY_IN_CLASS(LogSystem)
-    
-private:
-    std::shared_ptr<spdlog::logger> logger_ = nullptr;
-};
 
-extern inline std::unique_ptr<LogSystem> GlobalLogger = nullptr;
+    static void Init()
+    {
+        auto console_sink = std::make_shared<spdlog::sinks::stdout_color_sink_mt>();
+        console_sink->set_pattern("[%^%=9l%$] %v");
 
-inline LogSystem* GetLog()
-{
-    if (GlobalLogger == nullptr) {
-        GlobalLogger = std::make_unique<LogSystem>();
+        std::vector<spdlog::sink_ptr> sinks{console_sink};
+        auto logger = std::make_shared<spdlog::logger>(San::LOGGER_NAME, sinks.begin(), sinks.end());
+        logger->set_level(spdlog::level::trace);
+        logger->flush_on(spdlog::level::trace);
+        spdlog::register_logger(logger);
     }
-    
-    return GlobalLogger.get();
-}
+
+    static void Shutdown()
+    {
+        spdlog::shutdown();
+    } 
+
+private:
+};
 
 } // namespace San
 
@@ -66,7 +61,3 @@ inline LogSystem* GetLog()
 #define LOG_FATAL(...)   if (spdlog::get(San::LOGGER_NAME) != nullptr) \
     {const std::string format_str = fmt::format("[{}:{}:{}] {}", __FILE__, __LINE__, __FUNCTION__, fmt::format(__VA_ARGS__)); \
     throw std::runtime_error(format_str);}
-
-#define INIT_LOG() \
-        if (San::GlobalLogger) {LOG_INFO("Log system has been initialized")} \
-        else {San::GlobalLogger = std::make_unique<San::LogSystem>(); LOG_INFO("Init log system") }
