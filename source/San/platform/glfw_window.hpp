@@ -28,7 +28,7 @@ public:
 
     float getContentScaleFactor() const override;
 
-    GLFWwindow* getGlfwWindowHandle() const { return handle_; }
+    GLFWwindow* getGLFWHandle() const { return handle_; }
 private:
     void setGLFWCallback();
     MouseButton getMouseButton() const { return pressedMouseButton; }
