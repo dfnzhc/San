@@ -214,8 +214,6 @@ GLFW_Window::GLFW_Window(Platform* platform, const Window::Properties& propertie
 
     glfwSetWindowUserPointer(handle_, platform);
     setGLFWCallback();
-
-    LOG_INFO("Create GLFW window successfully.");
 }
 
 GLFW_Window::~GLFW_Window()

@@ -6,9 +6,6 @@
 
 namespace San {
 
-inline std::string_view GetFileExtension(std::string_view fileName)
-{
-    return fileName.substr(fileName.rfind('.')).substr(1);
-}
+
 
 } // namespace San

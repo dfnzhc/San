@@ -19,13 +19,13 @@ public:
     virtual ~Application() = default;
 
     /**
-     * @brief 准备 app 运行所必要的部件
+     * @brief 准备 app 运行所必要的部件，在窗口创建之前执行
      * @param platform app 所运行的系统
      */
     virtual bool prepare(Platform& platform) { platform_ = &platform; return true; }
     
     /**
-     * @brief 设置 app 属性
+     * @brief 设置 app 属性，在窗口创建之后执行
      */
     virtual void setup() {}
     /**
@@ -44,7 +44,7 @@ public:
      * @param width 新窗口的宽
      * @param height 新窗口的高
      */
-    virtual bool resize(const uint32_t width, const uint32_t height) { return true; }
+    virtual bool resize(uint32_t width, uint32_t height) { return true; }
 
     /**
      * @brief 处理输入事件
