@@ -25,6 +25,9 @@
 #include <wrl.h>
 #include <limits>
 #include <set>
+#include <span>
+#include <vector>
+#include <cmath>
 
 #ifdef SAN_IN_WINDOWS
 #include <Windows.h>
