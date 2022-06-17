@@ -341,7 +341,7 @@ void GLFW_Window::setGLFWCallback()
             glfwGetCursorPos(window, &xpos, &ypos);
 
             platform->inputEvent(MouseInputEvent{
-                MouseButton::Unknown,
+                MouseButton::Middle,
                 MouseAction::Scroll,
                 static_cast<float>(xpos),
                 static_cast<float>(ypos),
