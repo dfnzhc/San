@@ -212,6 +212,7 @@ GLFW_Window::GLFW_Window(Platform* platform, const Window::Properties& propertie
         LOG_FATAL("Couldn't create glfw window.");
     }
 
+    glfwSetWindowPos(handle_, 10, 50);
     glfwSetWindowUserPointer(handle_, platform);
     setGLFWCallback();
 }

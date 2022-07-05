@@ -82,6 +82,9 @@ void Platform::resize(uint32_t width, uint32_t height)
 {
     auto extent = Window::Extent{std::max<uint32_t>(width, MIN_WINDOW_WIDTH),
                                  std::max<uint32_t>(height, MIN_WINDOW_HEIGHT)};
+    
+    window_properties_.extent = extent;
+    
     if (window_) {
         auto actual_extent = window_->resize(extent);
 
