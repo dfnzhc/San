@@ -8,4 +8,5 @@ add_library(San INTERFACE)
 target_link_libraries(San INTERFACE base platform utils)
 target_include_directories(San INTERFACE ${SAN_INCLUDES})
 
+add_library(San::Base ALIAS base)
 add_library(San::San ALIAS San)
